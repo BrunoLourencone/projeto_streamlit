@@ -31,16 +31,19 @@ def main():
 
             btn_cadastrar = st.form_submit_button("Cadastrar Cliente")
 
-            data_cliente = {
-            "nome": nome,
-            "email" : email,
-            "idade" : idade,
-            "telefone" : telefone,
-            "profissao" : profissao
-        }
+        if btn_cadastrar:
+            if not nome or not email or idade == 0:
+                st.error('todos os campos precisam ser preenchidos!')
+            else:
+                data_cliente = {
+                "nome": nome,
+                "email" : email,
+                "idade" : idade,
+                "telefone" : telefone,
+                "profissao" : profissao
+            }
 
-
-            st.write(data_cliente) 
+                st.write(data_cliente) 
 
     with abas [2]:
         st.title('editar')
